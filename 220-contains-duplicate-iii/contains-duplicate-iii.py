@@ -2,7 +2,7 @@ from sortedcontainers import SortedList
 
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
-        window = SortedList()#check
+        window = SortedList()
         
         for i, num in enumerate(nums):
             # Find closest value >= num - valueDiff
