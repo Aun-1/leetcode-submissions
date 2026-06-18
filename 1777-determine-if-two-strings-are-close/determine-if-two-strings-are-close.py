@@ -30,12 +30,12 @@ class Solution:
         if len(word1) != len(word2):
             return False
 
-        count1 = Counter(word1)
-        count2 = Counter(word2)
+        count1 = Counter(word1) #O(n)
+        count2 = Counter(word2) #O(m)
 
-        # Same set of distinct characters used
+        #Same set of distinct characters used
         if set(count1.keys()) != set(count2.keys()):
             return False
 
-        # Same multiset of frequencies
+        #Same multiset of frequencies
         return sorted(count1.values()) == sorted(count2.values())#O(1) as k<=26 in O(klogk)
