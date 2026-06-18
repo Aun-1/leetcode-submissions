@@ -9,7 +9,7 @@ class Solution:
         for count in freq:
             if count % 2 == 0:
                 total += count
-            if (count - 1) % 2 == 0:
+            elif (count - 1) % 2 == 0:
                 total += count - 1
                 has_odd = True
 
