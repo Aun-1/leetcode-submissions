@@ -15,4 +15,4 @@ class Solution:
             result.append(c*count)#O(n) TC if we did c+another str it would be O(n2)
 
         return ''.join(result)
-        #total TC O(n+klogk)
+        #total TC: O(n+klogk)
