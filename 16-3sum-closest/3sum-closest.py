@@ -3,7 +3,7 @@ class Solution:
         nums.sort() #nums = sorted(nums) Creates a new sorted list, Original list is unchanged
         closest = float('inf') 
         
-        for i in range(len(nums) - 2):
+        for i in range(len(nums) - 1):
             j = i + 1
             k = len(nums) - 1
             
