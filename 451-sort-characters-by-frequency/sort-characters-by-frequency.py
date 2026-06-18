@@ -1,12 +1,5 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
-        # largest=0
-        # freq=[0]*58
-        # for c in s:
-        #     freq[ord(c)-ord('A')]+=1
-        #     if freq[ord(c)-ord('A')]+=1>largest:
-        #         largest=freq[ord(c)-ord('A')]
-            
         freq={}
         for c in s:
             freq[c]=freq.get(c,0)+1
