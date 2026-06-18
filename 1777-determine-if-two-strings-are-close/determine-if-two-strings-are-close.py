@@ -38,4 +38,4 @@ class Solution:
             return False
 
         # Same multiset of frequencies
-        return sorted(count1.values()) == sorted(count2.values())
+        return sorted(count1.values()) == sorted(count2.values())#O(1) as k<=26 in O(klogk)
