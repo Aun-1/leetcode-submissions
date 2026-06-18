@@ -8,10 +8,11 @@ class Solution:
         for c in freq:
             pairs.append((freq[c],c))
 
-        pairs.sort(reverse=True)
+        pairs.sort(reverse=True)#O(k log k)
 
         result=[]
         for count,c in pairs:
-            result.append(c*count)
+            result.append(c*count)#O(n) TC if we did c+another str it would be O(n2)
 
         return ''.join(result)
+        #total TC O(n+klogk)
