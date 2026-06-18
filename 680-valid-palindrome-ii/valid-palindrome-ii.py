@@ -12,6 +12,6 @@ class Solution:
         while left < right:
             if s[left] != s[right]:
                 return isPalindrome(left + 1, right) or isPalindrome(left, right - 1)
-            left += 1
-            right -= 1
+            left +=1
+            right -=1
         return True
