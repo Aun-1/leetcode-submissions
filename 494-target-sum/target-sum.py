@@ -10,3 +10,5 @@ class Solution:
             counter = temp
 
         return counter.get(target, 0) 
+
+#if you forget how this works, ask AI to dry run with an example
