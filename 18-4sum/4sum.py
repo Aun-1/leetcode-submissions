@@ -3,7 +3,11 @@ class Solution:
         nums.sort()
         result=[]
         for i in range(len(nums)-3):
+            if i > 0 and nums[i] == nums[i-1]:  # IMPORTANT YOU TEND TO FORGET SKIPPING PROBLEM IN i,j,k,l 
+                continue
             for j in range(i+1,len(nums)-2):
+                if j > i+1 and nums[j] == nums[j-1]:  
+                    continue
                 k=j+1
                 l=len(nums)-1
                 while k<l:
@@ -19,14 +23,6 @@ class Solution:
                         k+=1
                     else:
                         l-=1
-        seen = set()
-        filtered = []
-        for i in result:
-            t = tuple(i)        # lists aren't hashable, convert to tuple
-            if t not in seen:
-                seen.add(t)
-                filtered.append(i)
-        result = filtered
         return result
 
 
