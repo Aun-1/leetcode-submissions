@@ -28,19 +28,3 @@ class Solution:
 
 
 
-
-
-        # for i in range(len(nums)-1):
-        #     for j in range(len(nums)-2,0,-1):
-        #         k=i+1
-        #         l=j-1
-        #         while l>k:
-        #             if nums[i] + nums[j] + nums[k] + nums[l] == target:
-        #                 result.append([nums[i],nums[j],nums[k],nums[l]])
-        #             elif nums[i] + nums[j] + nums[k] + nums[l] < target:
-        #                 k+=1
-        #             else:
-        #                 l-=1
-        # return result
-
-
