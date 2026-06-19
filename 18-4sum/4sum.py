@@ -3,6 +3,7 @@ class Solution:
         nums.sort()
         result=[]
         for i in range(len(nums)-3):
+            if nums[i] * 4 > target: break      # just for improving TC
             if i > 0 and nums[i] == nums[i-1]:  # IMPORTANT YOU TEND TO FORGET SKIPPING PROBLEM IN i,j,k,l 
                 continue
             for j in range(i+1,len(nums)-2):
