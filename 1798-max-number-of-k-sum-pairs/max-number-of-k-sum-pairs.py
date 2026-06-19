@@ -22,13 +22,12 @@ But 5 + 2 = 7 ≠ 3. There's no valid pair, so the answer should be 0, yet your 
 
     #alternative sol:
     def maxOperations(self, nums: List[int], k: int) -> int:
-        #2 pointer and in i not in seen 
-        diff_count={}
-        count=0
+        seen = {}
+        count = 0
         for n in nums:
-            if n in diff_count and diff_count[n]>0:
-                count+=1
-                diff_count[n]-=1
+            if seen.get(k - n, 0) > 0:
+                count += 1
+                seen[k - n] -= 1
             else:
-                diff_count[k-n]=diff_count.get(k-n,0)+1
-        return count 
+                seen[n] = seen.get(n, 0) + 1
+        return count
