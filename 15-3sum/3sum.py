@@ -18,7 +18,7 @@ class Solution:
                     j += 1
                 elif total > 0:
                     k -= 1
-                else:  # total == 0
+                else:  
                     result.append([nums[i], nums[j], nums[k]])
                     # Skip duplicates for j and k
                     while j < k and nums[j] == nums[j + 1]:
