@@ -1,6 +1,6 @@
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
-        remainder_index = {0: -1}  # remainder -> first index it was seen at
+        remainder_index = {0: -1}  
         running_sum = 0
         
         for i, num in enumerate(nums):
