@@ -13,18 +13,22 @@ class Solution:
         #         key=new_list[i][j][6:-1]
         #         value=root_info+'/'+new_list[i][j][:5]
         #         res[key].append(value)
-        content_to_paths = defaultdict(list)
+        res = defaultdict(list)
+        new_list = []
+        for i in paths:              # O(P) iterations, P = number of paths
+            data = i.split()         # O(L_i) - L_i = length of string i
+            new_list.append(data)
 
-        for path in paths:
-            parts = path.split()
-            root = parts[0]
-            for file_info in parts[1:]:
-                name, content = file_info.split('(')
-                content = content[:-1]#exlclude ')' in the end
-                content_to_paths[content].append(root + '/' + name)
+        for i in range(len(new_list)):
+            root_info = new_list[i][0]
+            for j in range(1, len(new_list[i])):
+                name, content = new_list[i][j].split('(')   # O(k)
+                key = content[:-1]                            # O(k)
+                value = root_info + '/' + name                # O(k)
+                res[key].append(value)
 
-        result = []
-        for group in content_to_paths.values():
-            if len(group) > 1:
-                result.append(group)
-        return result
+        sol = []
+        for i in res:
+            if len(res[i]) > 1:      # O(1) per check
+                sol.append(res[i])   # O(1) amortized, but copies a list reference
+        return sol
