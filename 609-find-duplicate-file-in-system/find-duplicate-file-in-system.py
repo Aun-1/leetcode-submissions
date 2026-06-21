@@ -23,4 +23,8 @@ class Solution:
                 content = content[:-1]          # drop trailing ')'
                 content_to_paths[content].append(root + '/' + name)
 
-        return [group for group in content_to_paths.values() if len(group) > 1]
+        result = []
+        for group in content_to_paths.values():
+            if len(group) > 1:
+                result.append(group)
+        return result
