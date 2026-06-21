@@ -20,7 +20,7 @@ class Solution:
             root = parts[0]
             for file_info in parts[1:]:
                 name, content = file_info.split('(')
-                content = content[:-1]          # drop trailing ')'
+                content = content[:-1]#exlclude ')' in the end
                 content_to_paths[content].append(root + '/' + name)
 
         result = []
