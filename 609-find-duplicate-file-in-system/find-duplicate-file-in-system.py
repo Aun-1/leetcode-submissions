@@ -20,7 +20,7 @@ class Solution:
         #         sol.append(res[i])   
         # return sol
 
-        #a more readable version of code would be 
+        #a more readable version of code would be:
 
         content_to_paths = defaultdict(list)
 
