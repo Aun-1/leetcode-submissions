@@ -1,6 +1,6 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-#using O(n) extra space but only const extra space allowed
+#using O(n) extra space but only constant extra space allowed
         # seen=set()
         # for n in nums:
         #     if n in seen:
