@@ -5,7 +5,7 @@ class Solution:
 
         #heap slighly better bcz because you never process more than k elements at a time.
 
-        import heapq #O(nlogn)
+        import heapq # O(n log k)
         heap = []
         for num in nums:
             heapq.heappush(heap, num)
