@@ -23,7 +23,7 @@ class Solution:
 
         from collections import Counter
         freq = Counter(arr)
-        counts = sorted(freq.values())  # ascending
+        counts = sorted(freq.values())
         
         unique_remaining = len(counts)
         
