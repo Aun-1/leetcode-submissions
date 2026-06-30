@@ -11,7 +11,7 @@ class Solution:
                 if i - remainder_index[remainder] >= 2:
                     return True
             else:
-                        remainder_index[remainder] = i
+                remainder_index[remainder] = i
 
         return False
 
