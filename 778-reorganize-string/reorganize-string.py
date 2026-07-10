@@ -16,4 +16,5 @@ class Solution:
                 result[idx] = char
                 idx += 2
         
+        
         return "".join(result)
