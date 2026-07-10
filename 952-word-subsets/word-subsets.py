@@ -26,5 +26,4 @@ class Solution:
                     break
             if ok:
                 result.append(w)
-        
         return result
