@@ -11,8 +11,8 @@ class Solution:
 
         while lo<hi:
             mid=(lo+hi)//2
-            if check_threshold(mid)<=threshold:
-                hi=mid
-            else:
-                lo=mid+1
-        return lo
+            if check_threshold(mid)<=threshold: # sum small enough
+                hi=mid  #this divisor works, try smaller
+            else:# sum still too big
+                lo=mid+1  # need bigger divisor
+        return lo 
