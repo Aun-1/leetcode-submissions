@@ -11,3 +11,7 @@ class Solution:
             else:
                 return mid
         return lo
+        '''
+alternative u could do hi=len(nums)-1
+and hi=mid-1 also
+        '''
