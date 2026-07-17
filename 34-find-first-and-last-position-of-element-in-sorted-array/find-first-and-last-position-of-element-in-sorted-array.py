@@ -13,5 +13,10 @@ class Solution:
         left = lowerBound(target)
         if left == len(nums) or nums[left] != target:
             return [-1, -1]
-        right = lowerBound(target + 1) - 1
+
+        right = left
+        while right < len(nums) and nums[right] == target:
+            right += 1
+        right -= 1
+
         return [left, right]
