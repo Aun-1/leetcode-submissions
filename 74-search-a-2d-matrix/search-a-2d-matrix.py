@@ -12,9 +12,9 @@ class Solution:
                 lo = mid + 1
         row = lo
 
-        # target can't possibly be in this row
-        if target < matrix[row][0] or target > matrix[row][-1]:
-            return False
+        # # target can't possibly be in this row
+        # if target < matrix[row][0] or target > matrix[row][-1]:
+        #     return False
 
         # binary search within the row: find first element >= target
         lo, hi = 0, n - 1
