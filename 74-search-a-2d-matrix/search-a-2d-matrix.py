@@ -1,21 +1,29 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        i=0
-        while i<len(matrix):
-            if matrix[i][-1]<target:
-                i+=1
-            else:
+        m, n = len(matrix), len(matrix[0])
+
+        # binary search to find the row
+        lo, hi = 0, m - 1
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if matrix[mid][0] <= target <= matrix[mid][-1]:
+                row = mid
                 break
-        if i == len(matrix):
-            return False   # target bigger than everything
-        lo=0
-        hi=len(matrix[i])-1
-        while lo<=hi:
-            mid=(lo+hi)//2
-            if matrix[i][mid]>target:
-                hi=mid-1
-            elif matrix[i][mid]<target:
-                lo=mid+1
+            elif matrix[mid][-1] < target:
+                lo = mid + 1
+            else:
+                hi = mid - 1
+        else:
+            return False
+
+        # binary search within the row
+        lo, hi = 0, n - 1
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if matrix[row][mid] > target:
+                hi = mid - 1
+            elif matrix[row][mid] < target:
+                lo = mid + 1
             else:
                 return True
         return False
