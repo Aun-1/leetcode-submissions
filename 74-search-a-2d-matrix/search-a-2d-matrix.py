@@ -22,8 +22,6 @@ class Solution:
             else:
                 lo = mid + 1       # ruled out -> shrink left
 
-        # RULE: sentinel check — lo could be n (target bigger than everything in this row),
-        # and the next line indexes matrix[row][lo]
         if lo == n:
             return False
 
