@@ -8,4 +8,5 @@ class Solution:
                 hi=mid
             else:
                 lo=mid+1
+                
         return lo
