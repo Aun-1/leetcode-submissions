@@ -19,11 +19,8 @@ class Solution:
         #     result.append(pair[1])
         # return result
 
-        numCount = {}
-        for n in nums:
-            if n not in numCount:
-                numCount[n]=1
-            else:
-                numCount[n]+=1
+        from collections import Counter
+
+        numCount = Counter(nums)
         ordered = sorted(numCount, key=numCount.get, reverse=True)
         return ordered[:k]
