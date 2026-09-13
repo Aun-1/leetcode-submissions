@@ -1,23 +1,27 @@
+import heapq
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        #sorted() takes:the list to sort///key= a function that it runs on every element to decide the order
-        def distance(point):
-            return point[0]**2 + point[1]**2
+
+        heap = []
+        for p in points:
+            d=p[0]**2+p[1]**2
+            heapq.heappush(heap, (-d,p))
+            if len(heap)>k:
+                heapq.heappop(heap)
         
-        sorted_points = sorted(points, key=distance)
+        result = []
+        for pair in heap:
+            result.append(pair[1])
         
-        return sorted_points[:k]
+        return result
+            
+        
 
+        #sorted() takes: 1. iterable e.g str or list to sort & 2. key= a function that it runs on every element to decide the order
+        # def distance(point):
+        #     return point[0]**2 + point[1]**2
+        
+        # sorted_points = sorted(points, key=distance)
+        
+        # return sorted_points[:k]
 
-
-
-        # distance={}
-        # for i in points:
-        #     distance[i[0]**2+i[1]**2]=points
-        # count=0
-        # result=[]
-        # for dist, points in sorted(distance.items(), key=lambda x: -x[0]):
-        #     result.append(points)
-        #     count+=1
-        #     if count==k:
-        #         return result
