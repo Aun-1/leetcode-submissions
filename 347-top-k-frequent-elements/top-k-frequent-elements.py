@@ -1,6 +1,6 @@
+import heapq
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        import heapq
         numCount = {}
         for n in nums:
             if n not in numCount:
