@@ -30,12 +30,13 @@ class Solution:
         char_to_word = {}
         word_to_char = {}
 
-        for c, w in zip(pattern, words):
-            if c in char_to_word and char_to_word[c] != w:
-                return False
-            if w in word_to_char and word_to_char[w] != c:
-                return False
-            char_to_word[c] = w
-            word_to_char[w] = c
-
+        for i in range(len(words)):
+            if words[i] in word_to_char:
+                if word_to_char[words[i]]!=pattern[i]:
+                    return False
+            if pattern[i] in char_to_word:
+                if char_to_word[pattern[i]]!=words[i]:
+                    return False
+            char_to_word[pattern[i]]=words[i]
+            word_to_char[words[i]]=pattern[i]
         return True
