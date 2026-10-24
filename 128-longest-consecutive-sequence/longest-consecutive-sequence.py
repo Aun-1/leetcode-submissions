@@ -9,7 +9,7 @@ class Solution:
                 while n + 1 in nums_set:
                     count+=1
                     n+=1
-                if count+1 > hi:
-                    hi = count
+            if count+1 > hi:
+                hi = count
                     
         return hi
