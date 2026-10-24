@@ -1,12 +1,12 @@
+from collections import defaultdict
 class Solution:
-    from collections import defaultdict
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        strMap = defaultdict(list)
-
-        for n in strs:
-            arr=[0]*26
-            for c in n:
-                arr[ord(c)-ord('a')]+=1
-            strMap[tuple(arr)].append(n)
-
-        return list(strMap.values()) 
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+    #can we make fixed tupes to compae
+        list_map=defaultdict(list)
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[ord(c)-ord('a')]+=1
+            list_map[tuple(count)].append(s)
+        return list(list_map.values())
+        
