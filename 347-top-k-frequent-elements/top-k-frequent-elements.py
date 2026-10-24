@@ -1,26 +1,23 @@
-import heapq
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        # numCount = {}
-        # for n in nums:
-        #     if n not in numCount:
-        #         numCount[n]=1
-        #     else:
-        #         numCount[n]+=1
-        
-        # heap = []
-        # for num, count in numCount.items():
-        #     heapq.heappush(heap, (count, num))
-        #     if len(heap) > k:
-        #         heapq.heappop(heap)
-        
-        # result = []
-        # for pair in heap:
-        #     result.append(pair[1])
-        # return result
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
 
-        from collections import Counter
+        nums_map={}
+        for n in nums:
+            if n not in nums_map:
+                nums_map[n]=1
+            else:
+                nums_map[n]+=1
+            
+        tuple_list=[]
+        for num,count in nums_map.items():
+            tuple_list.append([count,num])
 
-        numCount = Counter(nums)
-        ordered = sorted(numCount, key=numCount.get, reverse=True)
-        return ordered[:k]
+        tuple_list.sort(reverse=True)
+        sol=[]
+
+        i=0
+        while i<k:
+            sol.append(tuple_list[i][1])
+            i+=1
+
+        return sol
