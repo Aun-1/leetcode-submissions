@@ -1,38 +1,27 @@
+'''
+forward num=1
+replace num with foward num then multupli b tisel ffotuurre 
+        '''
+'''
+1 1 2 6
+
+prod 4
+   12 8  6
+
+reverse prod =1 eahc time first multow ith forard arrya num X prpdo replace
+and update revese po by curr num  nultmlying i y
+        '''
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        # n = len(nums)
-        # pre = [1] * n
-        # post = [1] * n
-
-        # for i in range(1, n):
-        #     pre[i] = nums[i-1] * pre[i-1]
-
-        # for i in range(n-2, -1, -1):
-        #     post[i] = nums[i+1] * post[i+1]
-
-        # return [pre[i] * post[i] for i in range(n)]
-
-
-        prod = [1] * len(nums)
-
-        for i in range(1, len(nums)):
-            prod[i] = nums[i-1] * prod[i-1]
-
-        suffix = 1
-        for i in range(len(nums)-2, -1, -1):
-            suffix *= nums[i+1]
-            prod[i] *= suffix
-
-        return prod
-'''
-PRE:
-[1 2 3 4]
-[1 1 2 6]
-'''
-'''
-POST:
-[1 2 3 4]
-[24 12 4 1]
-'''
-
-
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
+        forward=1
+        output=[1]*len(nums)
+        for i,n in enumerate(nums):
+            output[i]=forward
+            forward*=n
+        
+        backward=1
+        for i in range(len(nums)-1,-1,-1):
+            output[i]*=backward
+            backward*=nums[i]
+        
+        return output
