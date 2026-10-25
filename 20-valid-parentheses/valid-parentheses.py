@@ -13,9 +13,6 @@ class Solution:
         bracketMap["("]=")"
         bracketMap["{"]="}"
         bracketMap["["]="]"
-        if s[0] not in bracketMap:
-            return False
-
         frontC=0
         backC=0
 
