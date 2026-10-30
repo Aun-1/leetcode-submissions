@@ -1,12 +1,20 @@
+'''
+mid -> 4
+left = 0 right = 3, mid 1
+left = 2, right 3, mid 2
+
+'''
 class Solution:
     def mySqrt(self, x: int) -> int:
-        lo, hi = 0, x+1
-        ans = 0
-        while lo < hi:
-            mid = (lo + hi) // 2
-            if mid * mid <= x:
-                ans = mid      # mid is a valid candidate, try for bigger
-                lo = mid + 1
+        left = 0
+        right = x
+
+        while left <= right:
+            mid = (left + right) // 2
+            if mid*mid == x:
+                return mid
+            elif mid * mid < x:
+                left = mid + 1
             else:
-                hi = mid    # mid too big, search smaller
-        return ans
+                right = mid - 1
+        return left-1
