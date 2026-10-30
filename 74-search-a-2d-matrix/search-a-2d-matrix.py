@@ -1,28 +1,32 @@
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix) 
-        lo, hi = 0, m
-        while lo < hi:
-            mid = (lo + hi) // 2
-            if matrix[mid][-1] >= target:
-                hi = mid          # candidate -> shrink right
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
+        def findRow(matrix, target):
+            left = 0
+            right = len(matrix)-1
+
+            while left <= right:
+                mid = (left + right) //2
+                if matrix[mid][0] < target:
+                    left = mid + 1
+                elif matrix[mid][0] == target:
+                    return mid 
+                else:
+                    right = mid - 1
+            return right
+                
+        
+        row = findRow(matrix, target)
+        left = 0
+        right = len(matrix[row])-1
+
+        while left <= right:
+            mid = (left + right) // 2
+            if matrix[row][mid] == target:
+                return True
+            elif matrix[row][mid] < target:
+                left = mid + 1
             else:
-                lo = mid + 1       # ruled out -> shrink left
-        row = lo
-
-        if row == m:
-            return False
-
-        n=len(matrix[0])
-        lo, hi = 0, n
-        while lo < hi:
-            mid = (lo + hi) // 2
-            if matrix[row][mid] >= target:
-                hi = mid          # candidate -> shrink right
-            else:
-                lo = mid + 1       # ruled out -> shrink left
-
-        if lo == n:
-            return False
-
-        return matrix[row][lo] == target
+                right = mid - 1
+        
+        return False
+        
