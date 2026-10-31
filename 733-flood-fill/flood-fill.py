@@ -18,7 +18,7 @@ class Solution:
         original = image[sr][sc]
         if original == color:
             return image
-            
+
         rows, cols = len(image), len(image[0])
 
         dfs(sr, sc)
