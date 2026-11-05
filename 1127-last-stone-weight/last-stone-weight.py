@@ -1,3 +1,4 @@
+import heapq
 class Solution:
     def lastStoneWeight(self, stones: list[int]) -> int:
         '''
@@ -12,21 +13,43 @@ Best case: O(n log n)
 Space: O(n)
 “I modify the list in place, but Python’s sort uses up to O(n) extra memory internally.”
         '''
-        length = len(stones)
-        stones.sort()
+        # length = len(stones)
+        # stones.sort()
 
-        while length > 1:
-            if stones[-1]==stones[-2]:
-                stones.pop()
-                stones.pop()
-            else:
-                stones.insert(0,stones[-1]-stones[-2])
-                stones.pop()
-                stones.pop()
-                stones.sort()
+        # while length > 1:
+        #     if stones[-1]==stones[-2]:
+        #         stones.pop()
+        #         stones.pop()
+        #     else:
+        #         stones.insert(0,stones[-1]-stones[-2])
+        #         stones.pop()
+        #         stones.pop()
+        #         stones.sort()
             
-            length = len (stones)
+        #     length = len (stones)
         
+        # if length==1:
+        #     return stones[0]
+        # else: return 0
+
+
+        heap = []
+        for s in stones:
+            heap.append(-s)
+
+        heapq.heapify(heap)
+
+        length = len(heap)
+        
+        while length > 1:
+            larger = -heapq.heappop(heap)
+            smaller = -heapq.heappop(heap)
+
+            if larger != smaller:
+                heapq.heappush(heap, -(larger - smaller))
+            
+            length = len(heap)
+
         if length==1:
-            return stones[0]
+            return -heap[0]
         else: return 0
