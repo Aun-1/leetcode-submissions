@@ -1,5 +1,17 @@
 class Solution:
     def lastStoneWeight(self, stones: list[int]) -> int:
+        '''
+Time complexity of your sorting version:
+
+Worst case: O(n² log n)
+“If every smash leaves a stone, each turn removes only one stone, so there are n − 1 turns. Each of those turns does insert(0, ...) in O(n) and re-sorts in O(n log n). So n turns × O(n log n) = O(n² log n).”
+
+Best case: O(n log n)
+“If stones always come in equal pairs, like [3, 3, 5, 5], every turn takes the equal branch, which is just two O(1) pops. The only real cost is the initial sort, O(n log n).”
+
+Space: O(n)
+“I modify the list in place, but Python’s sort uses up to O(n) extra memory internally.”
+        '''
         length = len(stones)
         stones.sort()
 
