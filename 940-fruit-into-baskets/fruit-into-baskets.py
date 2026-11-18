@@ -11,7 +11,7 @@ class Solution:
             else:
                 fruitType[fruits[right]]=1
 
-            while len(fruitType)>2:
+            while len(fruitType)>2 and left<=right:
                 if fruitType[fruits[left]]>1:
                     fruitType[fruits[left]]-=1
                 else:
