@@ -4,7 +4,7 @@ class Solution:
         original = x
         x = abs(x)
         str_x = str(x)
-        length= len(str(x))
+        length= len(str_x)
         reverse = ""
         for i in range(length-1, -1, -1):
             reverse+=str_x[i]
