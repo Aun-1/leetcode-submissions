@@ -1,10 +1,11 @@
 class Solution:
-    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        nums_set=set(nums2)#O(m)
-        ans_set=set()
-        for n in nums1: #O(n)
-            if n in nums_set:
-                ans_set.add(n)
-        return list(ans_set)
-        
-#total TC O(n+m)
+    def intersection(self, nums1: list[int], nums2: list[int]) -> list[int]:
+        num1=set(nums1)
+        nums2=set(nums2)
+        result=set()
+
+        for n in nums1:
+            if n in nums2:
+                result.add(n)
+
+        return list(result)
