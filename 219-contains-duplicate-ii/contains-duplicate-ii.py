@@ -1,8 +1,20 @@
 class Solution:
-    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        dict1={}
+    def containsNearbyDuplicate(self, nums: list[int], k: int) -> bool:
+
+
+#Too slow 
+        # if k >= len(nums):
+        #     return len(nums) != len(set(nums))
+        # for i in range(len(nums)-k):
+        #     if len(nums[i:i+k+1])!=len(set(nums[i:i+k+1])):
+        #         return True
+        # return False
+
+
+        last ={}
         for i,n in enumerate(nums):
-            if n in dict1 and abs(dict1[n]-i)<=k:
+            if n in last:
+                if abs(last[n]-i)<=k:
                     return True
-            dict1[n]=i
+            last[n]=i
         return False
