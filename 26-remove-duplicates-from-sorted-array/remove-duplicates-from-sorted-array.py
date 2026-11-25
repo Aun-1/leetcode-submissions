@@ -30,8 +30,6 @@ while i<len(nums)-1:
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
 
-
-
         k = 0
         for i in range(len(nums)):
             if i == len(nums) - 1 or nums[i] < nums[i + 1]:   # last of its run
