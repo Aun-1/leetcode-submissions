@@ -1,25 +1,18 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        #using a dcntionary to sotre occurances + index values 
-        # count={}
-        # for i in range(len(s)):
-        #     count[s[i]]=count.get(s[i],0)+1+i
 
+        if len(s)!=len(t):
+            return False
+        s_to_t = {}
+        t_to_s = {}
 
-        map_s_to_t = {}
-        map_t_to_s = {}
-        
-        for c1, c2 in zip(s, t):
-            if c1 in map_s_to_t:
-                if map_s_to_t[c1] != c2:
-                    return False
-            else:
-                map_s_to_t[c1] = c2
+        for i in range(len(s)):
+            if s[i] in s_to_t and s_to_t[s[i]]!=t[i]:
+                return False
+            if t[i] in t_to_s and t_to_s[t[i]]!=s[i]:
+                return False
             
-            if c2 in map_t_to_s:
-                if map_t_to_s[c2] != c1:
-                    return False
-            else:
-                map_t_to_s[c2] = c1
-        
+            s_to_t[s[i]]=t[i]
+            t_to_s[t[i]]=s[i]
+
         return True
