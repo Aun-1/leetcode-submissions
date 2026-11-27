@@ -11,20 +11,20 @@ class Solution:
         # return False
 
 
-        # last ={}
-        # for i,n in enumerate(nums):
-        #     if n in last:
-        #         if abs(last[n]-i)<=k:
-        #             return True
-        #     last[n]=i
-        # return False
+        last ={}
+        for i,n in enumerate(nums):
+            if n in last:
+                if abs(last[n]-i)<=k:
+                    return True
+            last[n]=i
+        return False
 
         #sliding window solution
-        window = set()
-        for i,num in enumerate(nums):
-            if num in window:
-                return True
-            window.add(num)
-            if len(window) > k:
-                window.remove(nums[i-k])
-        return False
+        # window = set()
+        # for i,num in enumerate(nums):
+        #     if num in window:
+        #         return True
+        #     window.add(num)
+        #     if len(window) > k:
+        #         window.remove(nums[i-k])
+        # return False
