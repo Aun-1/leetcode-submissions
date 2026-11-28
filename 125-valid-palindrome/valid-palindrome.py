@@ -7,6 +7,6 @@ class Solution:
                 s_list.append(c.lower())
 
         for i in range(len(s_list)//2):
-            if s_list[i]!=s_list[len(s_list)-i-1]:
+            if s_list[i]!=s_list[-i-1]:
                 return False
         return True
