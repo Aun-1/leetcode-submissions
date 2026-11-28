@@ -3,6 +3,7 @@ class Solution:
 
         if len(s)!=len(t):
             return False
+
         s_to_t = {}
         t_to_s = {}
 
