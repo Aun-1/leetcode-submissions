@@ -26,9 +26,8 @@ class Solution:
         heap = []
         for n,c in nums_map.items():
             heapq.heappush(heap, (c,n))
-        
-        while len(heap) > k:
-            heapq.heappop(heap)
+            if len(heap) > k:
+                heapq.heappop(heap)
         
         ans = []
         for _ in range(k):
